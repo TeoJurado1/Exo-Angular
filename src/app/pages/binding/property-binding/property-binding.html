@@ -1,0 +1,14 @@
+<div class="p-8">
+  <div class="card bg-base-100 shadow-md w-96">
+    <figure>
+      <img [src]="oneFriend.imgUrl" [alt]="oneFriend.name" class="w-full h-48 object-cover">
+    </figure>
+    <div class="card-body gap-2">
+      <h2 class="card-title text-primary">{{ oneFriend.name }}</h2>
+      <p><strong>Statut :</strong> {{ getOneFriendStatus() }}</p>
+      <p><strong>Âge :</strong> {{ oneFriend.age }} ans</p>
+      <p><strong>Bio :</strong> {{ oneFriend.bio }}</p>
+      <p><strong>Réputation :</strong> {{ getOneFriendStatus() === 'Active' ? 'Cool' : 'Ringard' }}</p>
+    </div>
+  </div>
+</div>
