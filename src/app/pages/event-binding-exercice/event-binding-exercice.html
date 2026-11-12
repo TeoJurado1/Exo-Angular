@@ -1,0 +1,23 @@
+<div class="max-w-md mx-auto mt-10 flex flex-col gap-4">
+
+  <h1 class="text-3xl font-bold text-center">
+    <span class="text-primary">List Friends</span>
+    <span class="text-base-content/70">(Event Binding)</span>
+  </h1>
+
+  <label class="flex flex-col gap-1">
+    <span>Nom de l'ami</span>
+    <input (input)="onUpdateFriendsList($event)" type="text" class="input input-bordered w-full"
+      placeholder="Entrer le nom d'un ami" />
+    <input [(ngModel)]="listFriendsInputText" type="text" placeholder="Entrer le nom d'un ami"
+      class="input input-bordered w-full" aria-label="Nom de l'ami" />
+  </label>
+
+  <p class="text-center">Saisie : {{ listFriendsInputText }}</p>
+  <p class="text-center text-accent">{{ listFriendsCreationStatus }}</p>
+
+  <button class="btn btn-primary self-center" (click)="onAddingFriends()" [disabled]="listFriendsAuth">
+    + Ajouter un ami
+  </button>
+
+</div>

@@ -1,0 +1,56 @@
+<div class="max-w-6xl mx-auto p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <div class="card bg-base-100 shadow" [ngClass]="{ oldman: oneFriendAge >= 30 }">
+        <figure>
+            <img [src]="oneFriendImgUrl" [alt]="oneFriendName" class="w-full h-48 object-cover">
+        </figure>
+        <div class="card-body gap-3">
+            <h2 class="card-title text-primary">{{ oneFriendName }}</h2>
+            <p [ngStyle]="{ color: oneFriendStatus === 'Offline' ? 'red' : 'green' }">
+                <strong>Status :</strong> {{ getOneFriendStatus() }}
+            </p>
+            <p><strong>Âge :</strong> {{ oneFriendAge }}</p>
+            <p><strong>Bio :</strong> {{ oneFriendBio }}</p>
+            <p><strong>Réputation :</strong> {{ oneFriendStatus === 'Online' ? 'Cool' : 'Ringard' }}</p>
+        </div>
+    </div>
+
+    <div class="card bg-base-100 shadow md:col-span-2">
+        <form class="card-body gap-3">
+            <h2 class="card-title text-primary">Éditer les informations de {{ oneFriendName }}</h2>
+
+            <label class="flex flex-col gap-1">
+                <span class="text-sm">Nom</span>
+                <input type="text" name="oneFriendName" [(ngModel)]="oneFriendName" class="input input-bordered w-full">
+            </label>
+
+            <label class="flex flex-col gap-1">
+                <span class="text-sm">Âge</span>
+                <input type="number" name="oneFriendAge" [(ngModel)]="oneFriendAge" class="input input-bordered w-full">
+            </label>
+
+            <label class="flex flex-col gap-1">
+                <span class="text-sm">Status</span>
+                <input type="text" name="oneFriendStatus" [(ngModel)]="oneFriendStatus"
+                    class="input input-bordered w-full">
+            </label>
+
+            <label class="flex flex-col gap-1">
+                <span class="text-sm">Bio</span>
+                <textarea name="oneFriendBio" [(ngModel)]="oneFriendBio"
+                    class="textarea textarea-bordered w-full h-24"></textarea>
+            </label>
+
+            <label class="flex flex-col gap-1">
+                <span class="text-sm">Image (URL)</span>
+                <input type="text" name="oneFriendImgUrl" [(ngModel)]="oneFriendImgUrl"
+                    class="input input-bordered w-full">
+            </label>
+
+            <div class="flex justify-end gap-2 mt-2">
+                <button type="button" class="btn btn-secondary">Annuler</button>
+                <button type="button" class="btn btn-primary">Sauvegarder</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -21,4 +21,20 @@ export const routes: Routes = [
     path: 'property-binding',
     loadComponent: () => import('./pages/binding/property-binding/property-binding').then((m) => m.PropertyBinding),
   },
+  {
+    path: 'event-binding',
+    loadComponent: () => import('./pages/event-binding-exercice/event-binding-exercice').then((m) => m.EventBindingExercice),
+  },
+  {
+    path: 'conditional-rendering',
+    loadComponent: () => import('./pages/conditional-rendering-exercice/conditional-rendering-exercice').then((m) => m.ConditionalRenderingExercice),
+  },
+  {
+    path: 'dynamic-styling',
+    loadComponent: () => import('./pages/dynamic-styling/dynamic-styling').then((m) => m.DynamicStyling),
+  },
+  {
+    path:'**',
+    loadComponent:()=>import('./components/not-found/not-found').then(m=>m.NotFound)
+  }
 ];
